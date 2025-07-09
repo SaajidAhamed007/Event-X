@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import { Navigate, Route,Routes } from "react-router-dom"
-import Login from "./components/login"
+import Login from "./components/Login"
 import Signup from "./components/Signup"
 import AdminDashboard from "./pages/admin/AdminDashboard"
 import AddEvent from "./pages/admin/AddEvent"
