@@ -105,7 +105,7 @@ const Login = () => {
         style={{ fontFamily: 'Plus Jakarta Sans, Noto Sans, sans-serif' }}
         >
         <div>
-            <h2 className="text-2xl font-bold text-center text-gray-900">Campus Connect</h2>
+            <h2 className="text-2xl font-bold text-center text-gray-900">Event-X</h2>
         </div>
         <form onSubmit={loginWithEmail} className="w-full max-w-md p-6 bg-white shadow-md rounded-xl space-y-6">
             {/* Email */}
