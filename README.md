@@ -1,48 +1,60 @@
-🏠 1. Home Page (/) – Discover Events
-Prompt:
-A clean, modern event discovery interface with a card-based layout. Use a light background with soft accent colors (pastel blue, mint, or lavender). Event cards should have subtle shadows and hover animations. Include filter dropdowns at the top, a search bar, and a fixed header with logo and login/profile button.
+Event-X – Digital Event Discovery Platform
 
-Style: Minimalist, responsive
-Vibe: Coursera meets Product Hunt
+Event-X is a web application where students and professionals can easily find and register for events such as workshops, seminars, webinars, and bootcamps. Organizers can post their events, and users can browse, filter, save, and attend events without confusion. It also sends email alerts to users before their registered events.
 
-🔍 2. Event Detail Page (/event/[id])
-Prompt:
-A focused, single-page view with a large banner image at the top. Below it, display event metadata using icons (calendar, price, format). Use clear sectioning for description, organizer info, tags, and call-to-action (register/bookmark). Use soft card or pill styles for tags.
 
-Style: Elegant, informative
-Vibe: Eventbrite meets Medium article
+Features:
 
-🔐 3. Login Page (/login)
-Prompt:
-A centered card layout on a blurred background illustration of a digital campus or abstract network. Prominent Google Sign-In button with hover effect. Friendly welcome text in a modern sans-serif font. Add a quote or benefit like “Join 10,000+ learners discovering top workshops.”
+- Filter events based on Level, Type, and Format
+- Google Login using Firebase Authentication
+- Register for upcoming events
+- Save events to view later
+- Admin dashboard for event organizers
+- Email alerts for registered users before the event
 
-Style: Welcoming, professional
-Vibe: Google login page meets Udemy onboarding
 
-🧑‍🎓 4. User Profile Page (/profile) [Optional]
-Prompt:
-A dashboard card layout showing user's bookmarked and registered events in sections. Use badges for event statuses (e.g., “Upcoming”, “Completed”). Use subtle gradients or soft separators to distinguish sections. Clean typography with personalized welcome message.
+Tech Stack:
 
-Style: Dashboard-like, user-centric
-Vibe: Notion meets LinkedIn profile
+- **Frontend:** React.js, Tailwind CSS
+- **Backend:** Firebase Firestore
+- **Authentication:** Firebase Auth (Google Login)
+- **Email Alerts:** EmailJs
+- **Deployment:** Vercel
 
-🛠️ 5. Organizer Dashboard (/dashboard)
-Prompt:
-An admin dashboard with a grid or table layout of posted events. Use side navigation with icons for "My Events", "Add Event", and "Settings". Use cards with edit/delete buttons and stats (e.g., registrations). Ensure it works well on both desktop and mobile.
+---
 
-Style: Functional, modern
-Vibe: Stripe dashboard meets Airtable
+Live Link:
 
-➕ 6. Add/Edit Event Page (/dashboard/add)
-Prompt:
-A form layout with floating labels and step-wise validation. Use icon-labeled inputs and toggle buttons for event type, level, and format. Use drag-and-drop or upload card for banners. Submit button should have subtle animation on hover. Optional preview card on the right.
+You can check the live app here:  
+**[https://your-deployed-link.vercel.app](https://your-deployed-link.vercel.app)**
 
-Style: Sleek form UI
-Vibe: Typeform meets Google Forms+
 
-📩 7. Email Reminder Template (Email theme)
-Prompt:
-Clean HTML email layout with header banner, main body with event info, and a call-to-action button. Use brand colors from the platform (e.g., blue/violet tones). Include social icons in the footer. Keep it mobile-optimized.
+Folder Structure:
 
-Style: Professional, lightweight email
-Vibe: Google Calendar invite meets Substack digest
+EventX/
+├── public/
+├── src/
+│ ├── assets/
+│ ├── components/
+│ ├── pages/
+│ ├── services/
+│ ├── stores/
+│ └── App.jsx
+├── .gitignore
+├── package.json
+└── README.md
+
+## Getting Started
+
+To run this project locally:
+
+```bash
+git clone https://github.com/your-username/event-x.git
+cd event-x
+npm install
+npm run dev
+Authors
+Saajid Ahamed – Frontend & Firebase Integration,Event Management, UI/UX, and Testing
+
+License
+This project is intended for educational and demo purposes only.
