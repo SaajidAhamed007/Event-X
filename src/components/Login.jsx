@@ -40,7 +40,6 @@ const Login = () => {
                     email: user.email,
                     role,
                     profilePic:user.profilePic,
-                    createdAt
                 };
 
                 console.log(user)
@@ -82,7 +81,6 @@ const Login = () => {
                     name: user.displayName || "Guest",
                     email: user.email,
                     role,
-                    createdAt
                 };
 
                 await setDoc(userRef,userData)
