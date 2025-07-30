@@ -18,7 +18,7 @@ const HomePage = () => {
   return (
     <div>
         <div
-            className="relative flex flex-col bg-slate-50 justify-between overflow-x-hidden mt-4"
+            className="relative flex flex-col bg-slate-50 justify-between overflow-x-hidden"
             style={{ fontFamily: 'Plus Jakarta Sans, Noto Sans, sans-serif' }}
         >
 

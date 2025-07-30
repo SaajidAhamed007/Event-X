@@ -66,6 +66,7 @@ export const useEventStore = create((set,get) => ({
     },
 
     addNewEvent : async (eventData,organizer) => {
+      set({isLoading:true})
       try {
         const fullData = {
           ...eventData,
@@ -85,6 +86,8 @@ export const useEventStore = create((set,get) => ({
         console.error("Error adding event:", error);
         toast.error("Error in Adding event!")
         throw error;
+      } finally {
+        set({isLoading:false});
       }
     },
 
@@ -138,6 +141,7 @@ export const useEventStore = create((set,get) => ({
             uid: user.uid,
             name: user.name,
             email: user.email,
+            profilePic:user.profilePic,
             registeredAt: new Date()
           }),
           setDoc(userRegRef, {
@@ -168,17 +172,35 @@ export const useEventStore = create((set,get) => ({
         toast.error("Error in Loading data! refresh the page")
       }
     },
+
     getRegisteredEventsByUser: async (uid) => {
-      try{
-        const registeredEventsRef = collection(db,"users",uid,"registrations");
+      set({isLoading:true});
+      try {
+        const registeredEventsRef = collection(db, "users", uid, "registrations");
         const snapshot = await getDocs(registeredEventsRef);
-        const userRegistrations = snapshot.docs.map((doc) => ({
-          id:doc.id,
-          ...doc.data()
-        }))
-        set({userRegistrations});
+
+        const userRegistrations = await Promise.all(
+          snapshot.docs.map(async (docSnap) => {
+            const registrationData = docSnap.data();
+            const eventRef = doc(db, "events", registrationData.eventId);
+            const eventSnap = await getDoc(eventRef);
+
+            const eventData = eventSnap.exists() ? eventSnap.data() : {};
+
+            return {
+              id: docSnap.id,
+              registeredAt: registrationData.registeredAt,
+              eventId: registrationData.eventId,
+              ...eventData,
+            };
+          })
+        );
+
+        set({ userRegistrations });
       } catch (error) {
-        console.log(error.message)
+        console.error("Error fetching full event details:", error.message);
+      } finally {
+        set({ isLoading: false });
       }
     }
 }))

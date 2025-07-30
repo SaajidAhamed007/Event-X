@@ -67,7 +67,7 @@ const AdminDashboard = () => {
       </button>
 
       <div className='flex items-center justify-center'>
-        <div className="w-2xl p-4 grid gap-4 sm:grid-cols-1  xl:grid-cols-3">
+        <div className="w-full p-4 grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {filteredEvents.length > 0 ? (
             filteredEvents.map((event, index) => (
             <div key={index} className="flex flex-col rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">

@@ -19,7 +19,7 @@ const UserEventList = () => {
 
   const handleFilterSelect = (category, value) => {
     setSelectedFilters((prev) => ({ ...prev, [category]: value }));
-    setOpenDropdown(null); // close dropdown after selection
+    setOpenDropdown(null);
   };
 
   useEffect(() => {
@@ -129,7 +129,7 @@ const UserEventList = () => {
       </div>
 
       <div className="flex items-center justify-center px-4">
-        <div className="w-full max-w-7xl grid gap-6 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+        <div className="w-full max-w-7xl grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {filteredEvents.length > 0 ? (
             filteredEvents.map((event, index) => (
               <div

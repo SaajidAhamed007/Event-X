@@ -1,9 +1,9 @@
-import { X } from 'lucide-react';
+import { Loader2, X } from 'lucide-react';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../../stores/useAuthStore';
 import { useEventStore } from '../../stores/useEventStore';
-import { uploadToCloudinary } from '../../utils/uploadBanner';
+import { uploadBannerToCloudinary } from '../../utils/uploadToCloudinary';
 
 const AddEvent = () => {
 
@@ -22,7 +22,7 @@ const AddEvent = () => {
   });
 
   const { user } = useAuthStore();
-  const { addNewEvent } = useEventStore();
+  const { isLoading,addNewEvent } = useEventStore();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -48,7 +48,7 @@ const AddEvent = () => {
       return;
     }
     try {
-      const bannerURL = await uploadToCloudinary(bannerFile)
+      const bannerURL = await uploadBannerToCloudinary(bannerFile)
 
       if(!bannerURL){
         alert("image upload file");
@@ -172,8 +172,8 @@ const AddEvent = () => {
               </div>
 
               <div
-                className="aspect-video w-full rounded-xl bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: `url(${formData.bannerPreview || 'https://via.placeholder.com/1280x720'})` }}
+                className="aspect-video w-full rounded-xl bg-contain bg-center bg-no-repeat"
+                style={{ backgroundImage: `url(${formData.bannerPreview || 'public/assets/NoBanner.png'})`}}
               ></div>
             </div>
           </div>
@@ -182,8 +182,8 @@ const AddEvent = () => {
         {/* Submit Button */}
         <div className="w-full">
           <div className="flex px-4 py-3">
-            <button type="submit" className="flex h-12 min-w-[84px] flex-1 items-center justify-center rounded-full bg-[#607afb] px-5 text-base font-bold text-[#f8f9fc]">
-              <span className="truncate">Create Event</span>
+            <button type="submit" className="flex h-12 min-w-[84px] flex-1 items-center justify-center rounded-full bg-blue-600 px-5 text-base font-bold text-[#f8f9fc] hover:bg-blue-800" disabled={isLoading}>
+              {isLoading?<span className='animate-spin'><Loader2></Loader2></span>:<span className="truncate">Create Event</span>}
             </button>
           </div>
           <div className="h-5 bg-[#f8f9fc]"></div>

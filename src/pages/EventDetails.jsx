@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { useEventStore } from "../../stores/useEventStore";
+import { useEventStore } from "../stores/useEventStore";
 import { ArrowBigLeft, ArrowLeft, Trash } from "lucide-react";
-import { useAuthStore } from "../../stores/useAuthStore";
+import { useAuthStore } from "../stores/useAuthStore";
 
 
 const EventDetails = () => {
@@ -70,8 +70,8 @@ const EventDetails = () => {
   if(!event || !form) return <h1>No event</h1>
 
   return (
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-8">
-        <div className="w-full max-w-4xl bg-white rounded-2xl shadow-md p-6 font-['Plus Jakarta Sans']">
+      <div className="min-h-screen bg-gray-100 flex items-center justify-center py-8">
+        <div className="w-full max-w-4xl bg-white rounded-2xl shadow-md p-6 pt-0 font-['Plus Jakarta Sans']">
 
           {/* Back Button */}
           <div className="mb-4">
@@ -82,10 +82,10 @@ const EventDetails = () => {
           </div>
 
           {/* Banner */}
-          <div
-            className="w-full aspect-[3/2] bg-cover bg-center rounded-xl border border-gray-300"
-            style={{ backgroundImage: `url(${event.bannerURL})` }}
-          />
+            <div
+              className="aspect-[3/2] bg-cover bg-center rounded-xl border border-gray-300"
+              style={{ backgroundImage: `url(${event.bannerURL})` }}
+            />
 
           {/* Title */}
           <h1 className="text-3xl font-bold text-center text-gray-900 mt-6">
@@ -103,14 +103,14 @@ const EventDetails = () => {
           </h1>
 
           {/* Info Table */}
-          <div className="mt-6">
-            <table className="w-full mt-6 text-sm text-gray-800 border-separate border-spacing-y-3 text-center">
+          <div className="mt-6 flex items-center justify-center">
+            <table className="w-2xl mt-6 text-sm text-gray-800 border-separate border-spacing-y-3 text-center">
               <tbody>
                 {["Location", "Time", "Date", "Level", "Type", "Format"].map((label) => {
                   const key = label.toLowerCase();
                   return (
                     <tr key={key}>
-                      <td className="w-1/3 text-gray-500 font-medium">{label}</td>
+                      <td className=" text-gray-500 font-medium">{label}</td>
                       <td>
                         {isEditing ? (
                           <input

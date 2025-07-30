@@ -63,12 +63,12 @@ const RegistrantList = () => {
           <div key={idx} className="flex gap-4 bg-[#f9f9fb] px-4 py-3">
             <div
               className="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-[70px] w-fit"
-              style={{ backgroundImage: `url("${reg.image}")` }}
+              style={{ backgroundImage: `url("${reg.profilePic}")` }}
             />
             <div className="flex flex-1 flex-col justify-center">
               <p className="text-[#0f111a] text-base font-medium leading-normal">{reg.name}</p>
               <p className="text-[#56618f] text-sm font-normal leading-normal">{reg.email}</p>
-              <p className="text-[#56618f] text-sm font-normal leading-normal">Registered on: {reg.date}</p>
+              <p className="text-[#56618f] text-sm font-normal leading-normal">Registered on: {reg.registeredAt.toDate().toLocaleDateString()}</p>
             </div>
           </div>
         ))}

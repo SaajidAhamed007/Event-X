@@ -34,7 +34,7 @@ const Signup = () => {
                 name: user.displayName || "Guest",
                 email: user.email,
                 role:formData.role,
-                createdAt: new Date(),
+                createdAt
             };
 
             await setDoc(doc(db, "users", user.uid),userData);
@@ -71,7 +71,7 @@ const Signup = () => {
                     name: user.displayName || "Guest",
                     email: user.email,
                     role:formData.role ,
-                    createdAt: new Date(),
+                    createdAt
                 };
 
                 await setDoc(userRef,userData)
