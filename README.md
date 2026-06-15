@@ -1,60 +1,195 @@
-Event-X – Digital Event Discovery Platform
+# Event-X – Digital Event Discovery Platform
 
-Event-X is a web application where students and professionals can easily find and register for events such as workshops, seminars, webinars, and bootcamps. Organizers can post their events, and users can browse, filter, save, and attend events without confusion. It also sends email alerts to users before their registered events.
+A full-stack event discovery and registration platform built with React, Firebase, and EmailJS, enabling students and professionals to discover, save, and register for workshops, webinars, seminars, and bootcamps through a centralized platform.
 
-
-Features:
-
-- Filter events based on Level, Type, and Format
-- Google Login using Firebase Authentication
-- Register for upcoming events
-- Save events to view later
-- Admin dashboard for event organizers
-- Email alerts for registered users before the event
-
-
-Tech Stack:
-
-- **Frontend:** React.js, Tailwind CSS
-- **Backend:** Firebase Firestore
-- **Authentication:** Firebase Auth (Google Login)
-- **Email Alerts:** EmailJs
-- **Deployment:** Vercel
+This project demonstrates modern frontend architecture, authentication workflows, real-time database integration, event management, and automated email notifications.
 
 ---
 
-Live Link:
+## Problem Statement
 
-You can check the live app here:  
-**[https://your-deployed-link.vercel.app](https://your-deployed-link.vercel.app)**
+Finding relevant technical and professional events is often fragmented across multiple platforms.
 
+Users face challenges such as:
 
-Folder Structure:
+* Discovering relevant events
+* Tracking registrations
+* Managing saved events
+* Receiving timely reminders
+* Accessing a centralized event platform
 
+Event-X addresses these challenges by providing a unified event discovery and registration experience for both attendees and organizers.
+
+---
+
+## System Architecture
+
+```text
+              ┌─────────────┐
+              │    User     │
+              └──────┬──────┘
+                     │
+                     ▼
+             ┌──────────────┐
+             │ React Client │
+             └──────┬───────┘
+                    │
+         ┌──────────┼──────────┐
+         ▼                     ▼
+ ┌──────────────┐      ┌──────────────┐
+ │ Firebase Auth│      │  Firestore   │
+ │ Google Login │      │ Event Storage│
+ └──────────────┘      └──────────────┘
+                    │
+                    ▼
+              ┌──────────┐
+              │ EmailJS  │
+              │ Reminders│
+              └──────────┘
+```
+
+---
+
+## Core Features
+
+### Event Discovery
+
+Browse workshops, webinars, seminars, and bootcamps through a centralized platform.
+
+### Advanced Filtering
+
+Filter events based on:
+
+* Level
+* Type
+* Format
+
+to quickly find relevant opportunities.
+
+### Google Authentication
+
+Secure sign-in using Firebase Authentication and Google OAuth.
+
+### Event Registration
+
+Register for upcoming events and manage participation seamlessly.
+
+### Save Events
+
+Bookmark events to revisit and register later.
+
+### Organizer Dashboard
+
+Allows organizers to:
+
+* Create events
+* Manage event listings
+* Monitor registrations
+
+### Automated Email Reminders
+
+EmailJS-powered notifications help registered users stay informed before event start times.
+
+---
+
+## Tech Stack
+
+### Frontend
+
+* React.js
+* Tailwind CSS
+
+### Backend & Database
+
+* Firebase Firestore
+
+### Authentication
+
+* Firebase Authentication
+* Google OAuth
+
+### Notifications
+
+* EmailJS
+
+### Deployment
+
+* AWS
+
+---
+
+## Project Structure
+
+```text
 EventX/
 ├── public/
 ├── src/
-│ ├── assets/
-│ ├── components/
-│ ├── pages/
-│ ├── services/
-│ ├── stores/
-│ └── App.jsx
-├── .gitignore
+│   ├── assets/
+│   ├── components/
+│   ├── pages/
+│   ├── services/
+│   ├── stores/
+│   └── App.jsx
 ├── package.json
 └── README.md
+```
 
-## Getting Started
+---
 
-To run this project locally:
+## Running the Project
+
+### Prerequisites
+
+* Node.js
+* Firebase Project
+* EmailJS Account
+
+### Installation
 
 ```bash
-git clone https://github.com/your-username/event-x.git
-cd event-x
-npm install
-npm run dev
-Authors
-Saajid Ahamed – Frontend & Firebase Integration,Event Management, UI/UX, and Testing
+git clone https://github.com/SaajidAhamed007/Event-X
 
-License
-This project is intended for educational and demo purposes only.
+cd event-x
+
+npm install
+
+npm run dev
+```
+
+---
+
+## Engineering Concepts Demonstrated
+
+* Component-Based Architecture
+* State Management
+* Firebase Authentication
+* Real-Time Database Integration
+* Event-Driven Notifications
+* Responsive UI Design
+* Cloud Deployment
+* Client-Side Routing
+
+---
+
+## Future Enhancements
+
+* Event Recommendation System
+* Calendar Integration
+* QR-Based Event Check-In
+* Event Analytics Dashboard
+* Role-Based Access Control
+* Push Notifications
+
+---
+
+## Live Demo
+
+https://d2adaqnbiflue6.cloudfront.net/
+
+---
+
+## Author
+
+**Saajid Ahamed**
+
+Frontend Development, Firebase Integration, Event Management, UI/UX Design, and Testing.
